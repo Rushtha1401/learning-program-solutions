@@ -1,13 +1,16 @@
-package code;
-
 public class Main {
     public static void main(String[] args) {
-        Singleton obj1 = Singleton.getInstance();
-        Singleton obj2 = Singleton.getInstance();
 
-        obj1.showMessage();
-        obj2.showMessage();
+        Logger logger1 = Logger.getInstance();
+        logger1.log("This is the first log message.");
 
-        System.out.println("Are both instances the same? " + (obj1 == obj2));
+        Logger logger2 = Logger.getInstance();
+        logger2.log("This is the second log message.");
+
+        if (logger1 == logger2) {
+            System.out.println("Both logger instances are the same. Singleton works!");
+        } else {
+            System.out.println("Logger instances are different. Singleton failed.");
+        }
     }
 }
